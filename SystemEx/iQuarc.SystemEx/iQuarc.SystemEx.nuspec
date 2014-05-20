@@ -10,7 +10,7 @@
 		<summary>$description$</summary>
 		<description>$description$</description>
 		<releaseNotes>This is the initial set of System extensions.</releaseNotes>
-		<copyright>Copyright 2014</copyright>
+		<copyright>Copyright iQuarc 2014</copyright>
 		<tags>Utility System Extensions</tags>
 		<licenseUrl>https://raw.githubusercontent.com/iQuarc/SystemEx/master/MIT.md</licenseUrl>
 		<projectUrl>https://github.com/iQuarc/SystemEx</projectUrl>
