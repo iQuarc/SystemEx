@@ -87,7 +87,7 @@ namespace iQuarc.SystemEx.UnitTests
         {
             Dictionary<int, string> d = new Dictionary<int, string>();
 
-            NameValueCollection c = d.ConvertToNameValueCollection();
+            NameValueCollection c = d.ToNameValueCollection();
 
             Assert.Empty(c);
         }
@@ -101,7 +101,7 @@ namespace iQuarc.SystemEx.UnitTests
                     {2, "Value2"}
                 };
 
-            NameValueCollection c = d.ConvertToNameValueCollection();
+            NameValueCollection c = d.ToNameValueCollection();
 
             Assert.Equal("Value1", c[0]);
             Assert.Equal("Value2", c[1]);
@@ -115,7 +115,7 @@ namespace iQuarc.SystemEx.UnitTests
                     {1, "Value1"}
                 };
 
-            NameValueCollection c = d.ConvertToNameValueCollection();
+            NameValueCollection c = d.ToNameValueCollection();
 
             Assert.Equal("Value1", c["1"]);
         }
@@ -128,7 +128,7 @@ namespace iQuarc.SystemEx.UnitTests
                     {1, null}
                 };
 
-            NameValueCollection c = d.ConvertToNameValueCollection();
+            NameValueCollection c = d.ToNameValueCollection();
 
             Assert.Equal(string.Empty, c[0]);
         }
@@ -141,7 +141,7 @@ namespace iQuarc.SystemEx.UnitTests
                     {1, new MyType("Some value")}
                 };
 
-            NameValueCollection c = d.ConvertToNameValueCollection();
+            NameValueCollection c = d.ToNameValueCollection();
 
             Assert.Equal("Some value", c[0]);
         }
@@ -154,7 +154,7 @@ namespace iQuarc.SystemEx.UnitTests
                     {1, new MyType("Some value")}
                 };
 
-            NameValueCollection c = d.ConvertToNameValueCollection(type => "converted value");
+            NameValueCollection c = d.ToNameValueCollection(type => "converted value");
 
             Assert.Equal("converted value", c[0]);
         }
