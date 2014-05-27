@@ -11,9 +11,9 @@ namespace iQuarc.SystemEx.UnitTests
         [Fact]
         public void ReplaceAll_OneOccurrenceForReplacedElement_ElementReplaced()
         {
-            char[] chars = new[] {'a', 'b', 'c'};
+            char[] chars = {'a', 'b', 'c'};
 
-            var actual = chars.ReplaceAll('b', 'x');
+            IEnumerable<char> actual = chars.ReplaceAll('b', 'x');
 
             AssertEx.AreEquivalent(actual, 'a', 'x', 'c');
         }

@@ -15,7 +15,7 @@ namespace iQuarc.SystemEx
             return exception.InnerException.FirstInner<T>();
         }
 
-        public static Exception InnermostException(this Exception exception)
+        public static Exception InnerMostException(this Exception exception)
         {
             if (exception == null)
                 return null;
@@ -23,7 +23,7 @@ namespace iQuarc.SystemEx
             if (exception.InnerException == null)
                 return exception;
 
-            return exception.InnerException.InnermostException();
+            return exception.InnerException.InnerMostException();
         }
     }
 }

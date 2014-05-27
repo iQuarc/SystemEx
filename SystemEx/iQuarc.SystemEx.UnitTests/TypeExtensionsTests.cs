@@ -33,15 +33,15 @@ namespace iQuarc.SystemEx.UnitTests
         [Fact]
         public void GetGenericInterface_InterfaceIsGeneric_GenericInterfaceReturned()
         {
-            Type result = typeof (GenericInterfaceImpl<int, string>).GetGenericInterface(typeof (ISomeGenericInterface<,>));
+            Type result = typeof (GenericInterfaceImpl<int, string>).GetGenericInterface(typeof (IGenericInterface<,>));
 
-            Assert.Equal(typeof (ISomeGenericInterface<int, string>), result);
+            Assert.Equal(typeof (IGenericInterface<int, string>), result);
         }
 
         [Fact]
         public void GetGenericInterfaceArguments_DoesNotImplementInterface_InvalidOperationException()
         {
-            Action act = () => typeof (SomeType).GetGenericInterfaceArguments(typeof (ISomeGenericInterface<,>));
+            Action act = () => typeof (SomeType).GetGenericInterfaceArguments(typeof (IGenericInterface<,>));
 
             act.ShouldThrow<InvalidOperationException>();
         }
@@ -49,7 +49,7 @@ namespace iQuarc.SystemEx.UnitTests
         [Fact]
         public void GetGenericInterfaceArguments_InterfaceWithTwoGenericTypes_GenericArgumentsReturned()
         {
-            Type[] result = typeof (GenericInterfaceImpl<int, string>).GetGenericInterfaceArguments(typeof (ISomeGenericInterface<,>));
+            Type[] result = typeof (GenericInterfaceImpl<int, string>).GetGenericInterfaceArguments(typeof (IGenericInterface<,>));
 
             AssertEx.AreEquivalent(result, typeof (int), typeof (string));
         }
@@ -62,11 +62,11 @@ namespace iQuarc.SystemEx.UnitTests
         {
         }
 
-        private interface ISomeGenericInterface<T, V>
+        private interface IGenericInterface<T, V>
         {
         }
 
-        private class GenericInterfaceImpl<T, V> : ISomeGenericInterface<int, string>, ISomeInterface
+        private class GenericInterfaceImpl<T, V> : IGenericInterface<int, string>, ISomeInterface
         {
         }
     }

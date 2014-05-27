@@ -32,7 +32,7 @@ namespace iQuarc.SystemEx.UnitTests
             ArgumentNullException ane = new ArgumentNullException("", ae);
             Exception e = new Exception("", ane);
 
-            var actual = e.FirstInner<ArgumentException>();
+            ArgumentException actual = e.FirstInner<ArgumentException>();
 
             Assert.Same(ane, actual);
         }
@@ -42,7 +42,7 @@ namespace iQuarc.SystemEx.UnitTests
         {
             Exception e = new Exception();
 
-            Exception actual = e.InnermostException();
+            Exception actual = e.InnerMostException();
 
             Assert.Same(e, actual);
         }
@@ -50,7 +50,7 @@ namespace iQuarc.SystemEx.UnitTests
         [Fact]
         public void InnermostException_IsNull_NullReturned()
         {
-            Exception actual = ExceptionExtensions.InnermostException(null);
+            Exception actual = ExceptionExtensions.InnerMostException(null);
 
             Assert.Null(actual);
         }
@@ -62,7 +62,7 @@ namespace iQuarc.SystemEx.UnitTests
             ArgumentNullException ane = new ArgumentNullException("", ae);
             Exception e = new Exception("", ane);
 
-            var actual = e.InnermostException();
+            Exception actual = e.InnerMostException();
 
             Assert.Same(ae, actual);
         }

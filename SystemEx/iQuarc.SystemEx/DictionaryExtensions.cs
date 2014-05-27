@@ -7,7 +7,7 @@ namespace iQuarc.SystemEx
     public static class DictionaryExtensions
     {
         /// <summary>
-        /// Gets the value if it exists in the dictionary or the default of TValue.
+        /// Gets the value if it exists in the dictionary or the default of <see cref="TValue"/>.
         /// </summary>
         public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key)
         {
@@ -53,15 +53,15 @@ namespace iQuarc.SystemEx
         /// </summary>
         /// <remarks>
         /// The keys are converted to string using ToString function.
-        /// By default ToString is used to convert a value, if a convertion function is not provided
+        /// By default ToString is used to convert a value, if a conversion function is not provided
         /// </remarks>
-        public static NameValueCollection ConvertToNameValueCollection<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, Func<TValue, string> convertFunc = null) 
+        public static NameValueCollection ToNameValueCollection<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, Func<TValue, string> convertFunc = null) 
             where TValue : class
         {
             if (convertFunc == null)
                 convertFunc = t => t.ToString();
 
-            var nameValueCollection = new NameValueCollection();
+            NameValueCollection nameValueCollection = new NameValueCollection();
 
             foreach (var kvp in dictionary)
             {
