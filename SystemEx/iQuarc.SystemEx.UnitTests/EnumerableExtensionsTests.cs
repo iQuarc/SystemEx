@@ -170,5 +170,36 @@ namespace iQuarc.SystemEx.UnitTests
 
             Assert.True(actual);
         }
+
+        [Fact]
+        public void IsNullOrEmpty_ForNullLists_ReturnsTrue()
+        {
+            char[] collection = null;
+
+            bool actual = collection.IsNullOrEmpty();
+
+            Assert.True(actual);
+        }
+
+        [Fact]
+        public void IsNullOrEmpty_ForEmptyLists_ReturnsTrue()
+        {
+            char[] collection = new char[] { };
+
+            bool actual = collection.IsNullOrEmpty();
+
+            Assert.True(actual);
+        }
+
+
+        [Fact]
+        public void IsNullOrEmpty_ForNonEmptyLists_ReturnsFalse()
+        {
+            char[] collection = new char[] { 'a' };
+
+            bool actual = collection.IsNullOrEmpty();
+
+            Assert.False(actual);
+        }
     }
 }

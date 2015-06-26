@@ -89,5 +89,16 @@ namespace iQuarc.SystemEx
         {
             return subset.All(superset.Contains);
         }
+
+        /// <summary>
+        ///     Verifies if a collection is null or does not have any elements.
+        /// </summary>
+        public static bool IsNullOrEmpty<T>(this IEnumerable<T> collection)
+        {
+            if (collection == null || !collection.Any())
+                return true;
+
+            return false;
+        }
     }
 }
