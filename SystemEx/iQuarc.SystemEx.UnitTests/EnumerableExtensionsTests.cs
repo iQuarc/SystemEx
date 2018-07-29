@@ -170,5 +170,20 @@ namespace iQuarc.SystemEx.UnitTests
 
             Assert.True(actual);
         }
+
+        [Fact]
+        public void DistinctBy_FromObjectEnumerable_GetsDistinctElements()
+        {
+            var collection = new[]
+            {
+                new {Name = "Cristi", Age = 30},
+                new {Name = "Cata", Age = 20},
+                new {Name = "Ionut", Age = 20}
+            };
+
+            var actual = collection.DistinctBy(x => x.Age).ToList();
+
+            Assert.Equal(2, actual.Count);
+        }
     }
 }

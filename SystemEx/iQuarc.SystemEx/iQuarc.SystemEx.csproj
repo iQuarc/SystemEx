@@ -44,6 +44,8 @@
     <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="EqualityComparer.cs" />
     <Compile Include="ExceptionExtensions.cs" />
+    <Compile Include="FuncComparer.cs" />
+    <Compile Include="ListExtensions.cs" />
     <Compile Include="Priority\Priorities.cs" />
     <Compile Include="Priority\PriorityAttribute.cs" />
     <Compile Include="Priority\PriorityExtensions.cs" />
