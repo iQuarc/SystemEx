@@ -55,7 +55,7 @@ namespace iQuarc.SystemEx
         /// The keys are converted to string using ToString function.
         /// By default ToString is used to convert a value, if a conversion function is not provided
         /// </remarks>
-        public static NameValueCollection ToNameValueCollection<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, Func<TValue, string> convertFunc = null) 
+        public static NameValueCollection ToNameValueCollection<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, Func<TValue, string> convertFunc = null)
             where TValue : class
         {
             if (convertFunc == null)

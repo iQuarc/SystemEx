@@ -82,8 +82,7 @@ namespace iQuarc.SystemEx
         }
 
         /// <summary>
-        ///     Verifies if every element of the subset is also an element of the superset
-        /// 
+        ///     Verifies if every element of the subset is also an element of the superset.
         /// </summary>
         public static bool Includes<T>(this IEnumerable<T> superset, IEnumerable<T> subset)
         {
@@ -99,6 +98,30 @@ namespace iQuarc.SystemEx
                 return true;
 
             return false;
+        }
+
+        ///     Selects elements from the enumerable distinct by a Func selector.
+        /// </summary>
+        public static IEnumerable<T> DistinctBy<T>(this IEnumerable<T> collection, Func<T, object> selector) {
+            IEnumerable<T> result = collection.Distinct(new FuncEqualityComparer<T>(selector));
+
+            return result;
+        }
+
+        private class FuncEqualityComparer<T> : IEqualityComparer<T> {
+            private readonly Func<T, object> comparer;
+
+            public FuncEqualityComparer(Func<T, object> comparer) {
+                this.comparer = comparer;
+            }
+
+            public bool Equals(T x, T y) {
+                return comparer(x).Equals(comparer(y));
+            }
+
+            public int GetHashCode(T obj) {
+                return comparer(obj).GetHashCode();
+            }
         }
     }
 }

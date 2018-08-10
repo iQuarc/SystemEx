@@ -61,6 +61,7 @@
     <Compile Include="EnumerableExtensionsTests.cs" />
     <Compile Include="EqualityComparerTests.cs" />
     <Compile Include="ExceptionExtensions.cs" />
+    <Compile Include="ListExtensionsTests.cs" />
     <Compile Include="PriorityExtensionsTests.cs" />
     <Compile Include="ReflectionExtensionsTexts.cs" />
     <Compile Include="StringExtensionsTests.cs" />
